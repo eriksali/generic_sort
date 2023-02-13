@@ -7,34 +7,30 @@ import java.util.Scanner;
 public class App {
 
     @SuppressWarnings("unchecked")
-    public static <T extends Comparable<T>> ArrayList<Student<T>> createRandomArray(int arrayLength, String typeName) {
-        ArrayList<Student<T>> arrayList = new ArrayList<Student<T>>(arrayLength);
+    public static ArrayList createRandomArray(int arrayLength, String typeName) {
+        ArrayList arrayList = new ArrayList(arrayLength);
         Random random = new Random();
 
         switch (typeName) {
             case "Integer":
                 for (int i = 0; i < arrayLength; i++) {
-                    String id = String.valueOf(i);
-                    arrayList.add((Student<T>) new Student<Integer>(id, random.nextInt(100)));
+                    arrayList.add(random.nextInt(100));
                 }
                 break;
             case "Float":
                 for (int i = 0; i < arrayLength; i++) {
-                    String id = String.valueOf(i);
-                    arrayList.add((Student<T>) new Student<Float>(id, random.nextFloat(100)));
+                    arrayList.add(random.nextFloat(100));
                 }
                 break;
             case "Double":
                 for (int i = 0; i < arrayLength; i++) {
-                    String id = String.valueOf(i);
-                    arrayList.add((Student<T>) new Student<Double>(id, random.nextDouble(100)));
+                    arrayList.add(random.nextDouble(100));
                 }
                 break;
             default:
                 System.out.println("Unrecognized data type. Will use Integer as the grade data type.");
                 for (int i = 0; i < arrayLength; i++) {
-                    String id = String.valueOf(i);
-                    arrayList.add((Student<T>) new Student<Integer>(id, random.nextInt(100)));
+                    arrayList.add(random.nextInt(100));
                 }
                 break;
 
